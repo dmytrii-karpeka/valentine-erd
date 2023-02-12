@@ -1,14 +1,15 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
 import { Context, Telegraf } from 'telegraf';
 import { Update } from 'typegram';
 import { checkInitialization } from './checkInitialization';
 import { getMonamurID } from './getMonamurID';
 import { insertText } from './insertTextIntoDB';
 
-const dotenv = require("dotenv");
+
 const crypto = require("crypto");
 const cloudinary = require("cloudinary").v2;
-
-dotenv.config();
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
