@@ -1,5 +1,5 @@
-const dotenv = require("dotenv");
-dotenv.config();
+// const dotenv = require("dotenv");
+// dotenv.config();
 
 import { Context, Telegraf } from 'telegraf';
 import { Update } from 'typegram';
