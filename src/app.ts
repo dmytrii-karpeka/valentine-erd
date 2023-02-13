@@ -1,5 +1,5 @@
-// const dotenv = require("dotenv");
-// dotenv.config();
+const dotenv = require("dotenv");
+dotenv.config();
 
 import { Context, Telegraf } from 'telegraf';
 import { Update } from 'typegram';
@@ -20,6 +20,7 @@ cloudinary.config({
 import { insertInitialValues } from "./insertIntoDB";
 import { insertMonamur } from './insertMonamur';
 import { selectRecepient } from './selectRecepient';
+import { text } from 'stream/consumers';
 const bot: Telegraf<Context<Update>> = new Telegraf(process.env.BOT_TOKEN as string);
 
 
@@ -88,15 +89,17 @@ bot.on('text', async (ctx) => {
     // uploading photo and transforming
   
     try {
-      const url = await cloudinary.uploader.upload(`https://res.cloudinary.com/dnkvmylhg/image/upload/v1676215512/background_uhmnho.png`,
-        { color: "#F93943", overlay: {
-              font_family: "Georgia",
+      const url = await cloudinary.uploader.upload(`https://res.cloudinary.com/dnkvmylhg/image/upload/v1676293329/bg1_tr1axm.png`,
+        { color: "#EE1C1C", overlay: {
+              font_family: "Montserrat",
               font_size: 70,
-              font_weight: "bold",
+              font_weight: "regular",
               text_align: "center",
-              text: encodeURI(textForValentine)
-          }, width: 900, crop: "fit", flags: "layer_apply", gravity: "south", y: 200,
+              text: encodeURIComponent(textForValentine).replaceAll("%2C", "%E2%80%9A")
+          }, width: 700, crop: "fit", flags: "layer_apply", gravity: "north", y: 100,
           public_id: id})
+
+      console.log(encodeURIComponent(textForValentine));
       // sending photo to requesting user
       await bot.telegram.sendPhoto(recepient[0].chatidto, url.url.toString());
       // future feature: delete photo from cloudinary
