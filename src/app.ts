@@ -95,7 +95,7 @@ bot.on('text', async (ctx) => {
               font_weight: "regular",
               text_align: "center",
               text: encodeURIComponent(textForValentine).replaceAll("%2C", "%E2%80%9A")
-          }, width: 700, crop: "fit", flags: "layer_apply", gravity: "north", y: 100,
+          }, width: 700, crop: "fit", flags: "layer_apply", gravity: "center",
           public_id: id})
 
       console.log(encodeURIComponent(textForValentine));
