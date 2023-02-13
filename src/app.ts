@@ -1,5 +1,5 @@
-const dotenv = require("dotenv");
-dotenv.config();
+// const dotenv = require("dotenv");
+// dotenv.config();
 
 import { Context, Telegraf } from 'telegraf';
 import { Update } from 'typegram';
@@ -20,7 +20,6 @@ cloudinary.config({
 import { insertInitialValues } from "./insertIntoDB";
 import { insertMonamur } from './insertMonamur';
 import { selectRecepient } from './selectRecepient';
-import { text } from 'stream/consumers';
 const bot: Telegraf<Context<Update>> = new Telegraf(process.env.BOT_TOKEN as string);
 
 
