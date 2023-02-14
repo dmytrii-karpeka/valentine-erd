@@ -90,8 +90,8 @@ bot.on('text', async (ctx) => {
     try {
       const url = await cloudinary.uploader.upload(`https://res.cloudinary.com/dnkvmylhg/image/upload/v1676293329/bg1_tr1axm.png`,
         { color: "#EE1C1C", overlay: {
-              font_family: "Montserrat",
-              font_size: 70,
+              font_family: "Roboto",
+              font_size: 60,
               font_weight: "regular",
               text_align: "center",
               text: encodeURIComponent(textForValentine).replaceAll("%2C", "%E2%80%9A")
